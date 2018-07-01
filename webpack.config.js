@@ -2,9 +2,10 @@ const path = require('path')
 const output = path.resolve(__dirname, 'dist')
 
 module.exports = {
-  entry: './index.js',
+  entry: ['babel-polyfill', './index.js'],
   devServer: {
-    contentBase: './dist'
+    contentBase: './dist',
+    historyApiFallback: true
   },
   module: {
     rules: [

@@ -3,7 +3,7 @@
 BIN=node_modules/.bin
 
 watch:
-	@NODE_ENV=development $(BIN)/webpack-dev-server --open
+	@NODE_ENV=development $(BIN)/webpack-dev-server --history-api-fallback --open
 
 build:
 	@NODE_ENV=production webpack
@@ -12,5 +12,5 @@ bootstrap:
 	@npm install
 
 test:
-	@standard
+	@$(BIN)/standard
 	@$(BIN)/jest

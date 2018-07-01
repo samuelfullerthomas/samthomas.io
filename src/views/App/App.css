@@ -1,18 +1,85 @@
-.App {
-  display: flex;
-  word-break: break-word; /* doesn't work in firefox */
-  word-wrap: break-word;
-  white-space: normal;
-  text-align: center;
-  font-size: 36px;
-  font-family: Sans-Serif;
-  cursor: pointer;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+body {
+  margin: 0px;
 }
 
-.Hello {
+.App {
+  font-family: sans-serif;
+}
+
+.Feed {
+  display: flex;
+  flex-direction: column;
+}
+
+.FeedPost {
+  display: flex;
+  flex-direction: row;
+  padding: 0px 24px;
+  border-bottom: 1px solid black;
+}
+
+.FeedPost-imageSection {
+  margin-right: 24px;
+  width: 240px;
+  height: 159px;
+  background-color: blue;
+}
+
+.FeedPost-image {
+  max-height: 159px;
+  margin: auto;
+  display: block;
+}
+
+.FeedPost-image:hover {
+  cursor: pointer;
+}
+
+.FeedPost-textSection {
+  padding: 12px;
   min-width: 0;
+  flex-basis: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.FeedPost-title {
+  cursor: pointer;
+  font-size: 24px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.FeedPost-title:hover {
+  color: blue;
+}
+
+.FeedPost-photoInformation {
+  justify-content: space-between;
+  display: flex;
+}
+
+@media screen and (max-width: 450px) {
+  .FeedPost {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .FeedPost-imageSection {
+    margin: auto;
+    width: 300px;
+    padding: 5px
+  }
+
+  .FeedPost-title {
+    text-align: center;
+  }
+
+  .FeedPost-photoInformation {
+    flex-direction: column;
+    text-align: center;
+
+  }
 }
