@@ -20,28 +20,25 @@ export default {
   },
   fetchPost: async function ({ get, set, dispatch }, options) {
     fetchJSONFlickerFeed({ tag: options.tag }).then((feed) => {
-      try {
-        const [ selectedPost ] = feed.items.filter(post => post.link.match(/\/(\d*)\/$/)[1] === options.postId)
+      const [ selectedPost ] = feed.items.filter(post => post.link.match(/\/(\d*)\/$/)[1] === options.postId)
+      if (!selectedPost) {
+        set({ feed, selectedPost: 'None' })
+        dispatch('returnToFeed')
+      } else {
         set({ feed, selectedPost })
         dispatch('loadImages')
-      } catch (e) {
-        set({ feed, selectedPost: 'None' })
       }
     })
   },
   returnToFeed: function ({ get, set }) {
     set({ selectedPost: 'None' })
     const { browserHistory } = get()
-    browserHistory.push({ pathname: '/', state: { fromDashboard: true } })
+    browserHistory.push({ pathname: '/' })
   },
   selectPost: function ({ get, set }, { selectedPost }) {
     set({ selectedPost })
     const { browserHistory } = get()
     const postId = selectedPost.link.match(/\/(\d*)\/$/)[1]
-    browserHistory.push({
-      pathname: '/posts',
-      search: `?postId=${postId}`,
-      state: { fromDashboard: true }
-    })
+    browserHistory.push({ pathname: `/posts/${postId}/` })
   }
 }

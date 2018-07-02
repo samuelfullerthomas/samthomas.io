@@ -1,6 +1,12 @@
+body {
+  height: 100%;
+  background-color: #f2f2f2;
+  margin: 0px
+}
+
 .Post {
   padding: 12px;
-  height: 100%;
+  height: 100vh;
   display: flex;
   background-color: #f2f2f2;
   flex-direction: column;
@@ -8,7 +14,7 @@
 }
 
 .Post-topBar {
-  display: flex;
+  min-width: 0;
   flex-direction: column;
   background-color: white;
   margin-bottom: 16px;
@@ -29,8 +35,15 @@
 
 .Post-title {
   font-size: 24px;
-  display: flex;
   align-items: center;
+  min-width: 0px;
+  flex-basis: 70%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.Post-title {
+  white-space: nowrap;
 }
 
 .Post-backButton {
@@ -57,7 +70,6 @@
 
 .Post-image {
   height: 300px;
-  background-color: blue;
   min-width: 480px;
   margin-right: 24px;
 }
@@ -94,29 +106,48 @@
 }
 
 @media screen and (max-width: 800px) {
+  .Post {
+    height: auto;
+  }
+
   .Post-image {
-    height: 200px;
-    background-color: blue;
-    min-width: 320px;
+    min-width: auto;
+    height: auto;
     margin-right: 24px;
   }
+
   .Post-image img {
-    height: 200px;
-    display: block;
+    display: inline-block;
+    height: auto;
     margin: auto;
   }
 }
 
 @media screen and (max-width: 450px) {
+  .Post-image img {
+    display: inline-block;
+    margin: auto;
+    height: auto;
+  }
+
+  .Post {
+    height: auto;
+  }
+
   .Post-information {
     flex-direction: column;
     text-align: center;
   }
+
+  .Post-topBar--top {
+    margin-bottom: 20px;
+  }
+
   .Post-image {
-    height: 200px;
-    background-color: blue;
     min-width: auto;
+    height: auto;
     margin: auto;
-    padding: 10px 20px;
+    margin-bottom: auto;
+    margin-bottom: 20px;
   }
 }

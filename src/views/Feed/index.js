@@ -4,7 +4,7 @@ import renderIf from 'render-if'
 import connect from '../../state/atomConnector'
 import Loading from '../../components/Loading'
 
-import './App.css'
+import './Feed.css'
 
 const mapStateToProps = (state) => ({ feed: state.feed, images: state.images })
 
@@ -13,7 +13,7 @@ const mapActions = [
   'selectPost'
 ]
 
-class App extends Component {
+class Feed extends Component {
   componentWillMount () {
     this.props.fetchFeed({ tag: 'kartoffel' })
   }
@@ -27,7 +27,7 @@ class App extends Component {
     }
 
     return (
-      <div className='App' >
+      <div className='Feed' >
         {this.renderFeed()}
       </div>
     )
@@ -90,4 +90,4 @@ class App extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapActions)(App)
+export default connect(mapStateToProps, mapActions)(Feed)

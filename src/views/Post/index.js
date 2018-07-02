@@ -20,9 +20,8 @@ const mapActions = [
 
 class Post extends Component {
   componentWillMount () {
-    console.log(this.props.match)
     if (!this.props.selectedPost) {
-      const postId = this.props.location.search.match(/postId=(\d*)/)[1]
+      const postId = this.props.match.params.id
       this.props.fetchPost({ tag: 'kartoffel', postId })
     }
   }
