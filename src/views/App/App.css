@@ -1,18 +1,46 @@
-.App {
+body {
+  background: url(/professional.jpg);
+  background-size: initial;
+  background-repeat: repeat-y;
+  background-position-x: right;
+  background-position-y: top;
+}
+
+#root {
+  background-color: rgba(255, 255, 255, 0.7);
+  height: auto;
+  min-height: 100%;
+}
+
+.AppThing {
   display: flex;
+  flex-direction: column;
   word-break: break-word; /* doesn't work in firefox */
   word-wrap: break-word;
   white-space: normal;
   text-align: center;
   font-size: 36px;
   font-family: Sans-Serif;
-  cursor: pointer;
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 
-.Hello {
+.TitleThing {
+  cursor: pointer;
   min-width: 0;
+}
+
+.InformationThing {
+  flex-direction: column;
+  display: flex;
+}
+
+.TextThing {
+
+}
+
+.LinkThing {
+
 }

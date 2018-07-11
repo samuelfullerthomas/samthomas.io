@@ -5,23 +5,28 @@ import './App.css'
 
 const mapStateToProps = (state) => {
   return {
-    test: state.test
+    greeting: state.greeting,
+    email: state.email,
+    github: state.github,
+    otherSite: state.otherSite
   }
 }
 
 const mapActions = [
-  'action'
+  'double'
 ]
 
 class App extends Component {
   render () {
-    const { test, action } = this.props
+    const { greeting, email, github, otherSite, double } = this.props
     return (
-      <div
-        className='App'
-        onClick={() => action(test.repeat(2))}
-      >
-        <div className='Hello'>{test}</div>
+      <div className='AppThing' >
+        <div className='TitleThing' onClick={() => double('greeting')}>{greeting}</div>
+        <div className='InformationThing'>
+          <div className='TextThing'>email: {email}</div>
+          <a href={github} target='_blank' className='LinkThing'>github: {github}</a>
+          <a href={otherSite} target='_blank' className='LinkThing' >personal site: {otherSite}</a>
+        </div>
       </div>
     )
   }
