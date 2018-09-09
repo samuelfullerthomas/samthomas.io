@@ -9,7 +9,7 @@ const mapStateToProps = (state) => ({ browserHistory: state.browserHistory })
 
 const AppRouter = connect(mapStateToProps)(({ browserHistory }) => (
   <Router history={browserHistory}>
-    <div>
+    <div className='WrapperThing'>
       <Route exact path='/' component={App} />
     </div>
   </Router>

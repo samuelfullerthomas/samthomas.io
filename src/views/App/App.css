@@ -1,21 +1,27 @@
 body {
   background: url(/professional.jpg);
-  background-size: initial;
+  background-size: cover;
   background-repeat: repeat-y;
   background-position-x: right;
   background-position-y: top;
 }
 
 #root {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.35);
   height: auto;
+  min-height: 100%;
+}
+
+.WrapperThing {
+  background-color: rgba(255, 255, 255, 0.35);
+  height: 100%;
   min-height: 100%;
 }
 
 .AppThing {
   display: flex;
   flex-direction: column;
-  word-break: break-word; /* doesn't work in firefox */
+  word-break: break-word;
   word-wrap: break-word;
   white-space: normal;
   text-align: center;
@@ -37,10 +43,8 @@ body {
   display: flex;
 }
 
-.TextThing {
-
-}
-
-.LinkThing {
-
+@media screen and (max-width: 720px) {
+  .AppThing {
+    font-size: 20px;
+  }
 }
